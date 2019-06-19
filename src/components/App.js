@@ -25,7 +25,17 @@ class App extends React.Component {
   }
 
   onFindPetsClick = (p) => {
-    fetch("/api/pets", {})
+    let petType = this.state.filters.type
+    if (petType === 'all') {
+      fetch("/api/pets")
+      .then(res => this.state.pets = res)
+    } else if (petType === 'cat'){
+      fetch("/api/pets?type=cat")
+      .then(res => this.state.pets = res)
+    } else if (petType === 'micropig') {
+      fetch("/api/pets?type=micropig")
+      .then(res => this.state.pets = res)
+    }
   }
 
   render() {
