@@ -17,8 +17,15 @@ class App extends React.Component {
 
   onChangeType = (ptype) => {
     this.setState({
-      type: ptype
+      filters: {
+        ...this.state.filters,
+        type: ptype
+      }
     })
+  }
+
+  onFindPetsClick = (p) => {
+    fetch("/api/pets", {})
   }
 
   render() {
@@ -30,7 +37,7 @@ class App extends React.Component {
         <div className="ui container">
           <div className="ui grid">
             <div className="four wide column">
-              <Filters petType={this.onChangeType}/>
+              <Filters petType={this.onChangeType} petFind={this.onFindPetsClick}/>
             </div>
             <div className="twelve wide column">
               <PetBrowser />
