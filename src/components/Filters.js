@@ -1,13 +1,14 @@
 import React from 'react'
 
-
-
 class Filters extends React.Component {
 
   selection = (event) => {
-    debugger
+    this.props.onChangeType(event.target.value)
   }
 
+  finding = () => {
+    this.props.onFindPetsClick()
+  }
   render() {
     return (
       <div className="ui form">
@@ -22,7 +23,7 @@ class Filters extends React.Component {
         </div>
 
         <div className="field">
-          <button className="ui secondary button" >Find pets</button>
+          <button className="ui secondary button" onClick={this.finding} >Find pets</button>
         </div>
       </div>
     )
