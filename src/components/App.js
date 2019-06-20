@@ -23,18 +23,23 @@ class App extends React.Component {
     })
   }
 
-  onFindPetsClick = (p) => {
+  onFindPetsClick = () => {
     let petType = this.state.filters.type
-    // debugger
     if (petType === 'all') {
       fetch("/api/pets")
-      .then(res => this.state.pets = res)
+      .then(res => {
+        this.setState({pets: res})
+      })
     } else if (petType === 'cat'){
       fetch("/api/pets?type=cat")
-      .then(res => this.state.pets = res)
+      .then(res => {
+        this.setState({pets: res})})
+    } else if (petType === 'dog') {
+      fetch("/api/pets?type=dog")
+      .then(res => {this.setState({pets: res})})
     } else if (petType === 'micropig') {
       fetch("/api/pets?type=micropig")
-      .then(res => this.state.pets = res)
+      .then(res => {this.setState({pets: res})})
     }
   }
 
