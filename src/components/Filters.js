@@ -9,6 +9,7 @@ class Filters extends React.Component {
   finding = () => {
     this.props.onFindPetsClick()
   }
+  
   render() {
     return (
       <div className="ui form">
