@@ -43,8 +43,14 @@ class App extends React.Component {
     }
   }
 
-  onAdoptPet = (pet) =>{
-    //update the pet adaption status.
+  onAdoptPet = (id) =>{
+    const  listPets = this.state.pets.map(pet => {
+      if(pet.id === id) {
+        // return pet[isAdopted] = true;
+        return Object.assign(pet, {isAdopted: true})
+      }
+    })
+    this.setState({pets: listPets});
   }
 
   render() {
