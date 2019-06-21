@@ -3,13 +3,15 @@ import React from 'react'
 class Filters extends React.Component {
 
   selection = (event) => {
+    // event.preventDefault();
     this.props.onChangeType(event.target.value)
   }
 
-  finding = () => {
+  finding = (e) => {
+    // e.preventDefault();
     this.props.onFindPetsClick()
   }
-  
+
   render() {
     return (
       <div className="ui form">
