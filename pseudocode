@@ -1,0 +1,10 @@
+switch(expression) {
+  case url = '/api/pets':
+    type: 'cats'
+  break;
+  case y:
+  // code block
+  break;
+  default:
+  // code block
+}
