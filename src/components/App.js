@@ -25,7 +25,7 @@ class App extends React.Component {
 
   onFindPetsClick = () => {
     let petType = this.state.filters.type
-    debugger
+    // debugger
     if (petType === 'all') {
       fetch("/api/pets")
       .then(res => res.json())
@@ -49,12 +49,10 @@ class App extends React.Component {
   }
 
   onAdoptPet = (id) =>{
-    // debugger
     const  listPets = this.state.pets.map(pet => {
       if(pet.id === id) {
         pet.isAdopted = true;
         return pet
-        // return Object.assign(pet, {isAdopted: true})
       }
     })
     this.setState({pets: listPets});
