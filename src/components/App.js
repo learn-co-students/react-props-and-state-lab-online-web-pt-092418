@@ -52,14 +52,15 @@ class App extends React.Component {
     const  listPets = this.state.pets.map(pet => {
       if(pet.id === id) {
         pet.isAdopted = true;
-        return pet
+        return pet;
+      } else {
+        return pet;
       }
     })
     this.setState({pets: listPets});
   }
 
   render() {
-    // debugger
     return (
       <div className="ui container">
         <header>

@@ -2,9 +2,10 @@ import React from 'react'
 
 class Pet extends React.Component {
 
-  handleClick = () => {
-    // e.preventDefault();
-    this.props.onAdoptPet(this.props.pet.id)
+  handleClick = (e) => {
+    e.preventDefault();
+    let id = e.currentTarget.dataset.petid
+    this.props.onAdoptPet(id)
   }
 
   render() {
@@ -28,7 +29,7 @@ class Pet extends React.Component {
           {this.props.pet.isAdopted ? (
             <button className="ui disabled button">Already adopted</button>
           ) : (
-            <button className="ui primary button" onClick={this.handleClick}>Adopt pet</button>
+            <button className="ui primary button" onClick={this.handleClick} data-petId={this.props.pet.id}>Adopt pet</button>
           )}
         </div>
       </div>
