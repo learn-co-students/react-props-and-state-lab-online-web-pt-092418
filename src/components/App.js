@@ -19,7 +19,7 @@ class App extends React.Component {
     this.setState({
       filters: {
         ...this.state.filters,
-        type: event.currentTarget.value
+        type: event.target.value
       }
     });
   }
